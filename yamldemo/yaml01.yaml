@@ -1,0 +1,49 @@
+#- a
+#- b
+#- c
+#- d
+#- "a b c d"
+#- ~
+#字典潜嵌套列表，字典嵌套字典
+#language:
+#  - ruby
+#  - python
+#  - java
+#websites:
+#  yaml: YAML
+#  python: PYTHON
+#列表嵌套列表，列表嵌套字典
+# [[1,2],[3,4],[5,6]]
+#-
+#  - 1
+#  - 2
+#-
+#  - 3
+#  - 4
+#-
+#  - 5
+#  - 6
+#-
+#  key:"value"
+# 或者 流表达
+#- [1,2]
+#- [3,4]
+#- [5,6]
+#- {"key":"value"}
+
+#- &showwell Steve
+#- Clark
+#- Oren
+#- *showwell
+
+defaults: &defaults
+  adapter: postgres
+  host: localhost
+
+development:
+  databases: myapp_development
+  <<: *defaults
+
+test:
+  databases: myapp_test
+  <<: *defaults

@@ -57,6 +57,31 @@ class game:
                 print("enemy was defeated")
                 break
 
+    def back_home(self):
+        print("back")
 
-game_01 = game(10000, 900)
-game_01.fight()
+
+class houyi(game):
+    def __init__(self, defense, my_hp, enemy_hp):
+        self.defense = defense
+        super().__init__(my_hp, enemy_hp)
+
+    def fight(self):
+        while True:
+            self.my_hp = self.my_hp + self.defense - self.enemy_power
+            self.enemy_hp = self.enemy_hp - self.my_power
+            if self.my_hp <= 0:
+                print("i was defeated")
+                break
+            if self.enemy_hp <= 0:
+                print("enemy was defeated")
+                break
+
+
+if __name__ == '__main__':
+    game_01 = game(10, 900)
+    game_01.fight()
+
+    houyi_01 = houyi(200, 1000, 1500)
+    houyi_01.fight()
+    houyi_01.back_home()

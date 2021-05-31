@@ -128,4 +128,3 @@ HI31.题目描述
 # list_01.reverse()
 # sen_02=" ".join(list_01)
 # print(sen_02)
-
