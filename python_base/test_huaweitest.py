@@ -472,19 +472,95 @@ aabcddd
 dd
 aaddd
 """
-while True:
-    try:
-        a = input()
-        num = []
-        for word in a:
-            num.append(a.count(word))
-        for word in a:
-            if a.count(word) == min(num):
-                a = a.replace(word, '')
-        print(a)
-    except:
-        break
-
+# while True:
+#     try:
+#         a = input()
+#         num = []
+#         for word in a:
+#             num.append(a.count(word))
+#         for word in a:
+#             if a.count(word) == min(num):
+#                 a = a.replace(word, '')
+#         print(a)
+#     except:
+#         break
+"""
+HJ26 字符串排序
+描述
+编写一个程序，将输入字符串中的字符按如下规则排序。
+规则 1 ：英文字母从 A 到 Z 排列，不区分大小写。
+如，输入： Type 输出： epTy
+规则 2 ：同一个英文字母的大小写同时存在时，按照输入顺序排列。
+如，输入： BabA 输出： aABb
+规则 3 ：非英文字母的其它字符保持原来的位置。
+如，输入： By?e 输出： Be?y
+输入描述：
+输入字符串
+A Famous Saying: Much Ado About Nothing (2012/8).
+输出描述：
+输出字符串
+A aaAAbc dFgghh: iimM nNn oooos Sttuuuy (2012/8).
+"""
+# try:
+#     while True:
+#         s = input()
+#         a = []
+#         for i in s:
+#             if i.isalpha():
+#                 a.append(i)
+#         a.sort(key = lambda k:k.lower()) 不太能理解
+#         res = ''
+#         for i in s:
+#             if i.isalpha():
+#                 res += a.pop(0)
+#             else:
+#                 res += i
+#         print(res)
+# except:
+#     pass
+"""
+HJ29 字符串解密
+描述
+1、对输入的字符串进行加解密，并输出。
+2、加密方法为：
+当内容是英文字母时则用该英文字母的后一个字母替换，同时字母变换大小写,如字母a时则替换为B；字母Z时则替换为a；
+当内容是数字时则把该数字加1，如0替换1，1替换2，9替换0；
+其他字符不做变化。
+3、解密方法为加密的逆过程。
+本题含有多组样例输入。
+输入描述：
+输入说明
+输入一串要加密的密码
+输入一串加过密的密码
+abcdefg
+BCDEFGH
+输出描述：
+输出说明
+输出加密后的字符
+输出解密后的字符
+BCDEFGH
+abcdefg
+"""
+# a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+# b = "BCDEFGHIJKLMNOPQRSTUVWXYZAbcdefghijklmnopqrstuvwxyza1234567890"
+#
+# def transfer(s, a, b):
+#     output = ""
+#     for c in s:
+#         if c.isalnum():
+#             output += b[a.index(c)]
+#         else:
+#             break
+#     return output
+#
+# while True:
+#     try:
+#         s = input()
+#         print(transfer(s, a, b))
+#         s = input()
+#         print(transfer(s, b, a))
+#     except:
+#         break
 """
 HI31.题目描述
 对字符串中的所有单词进行倒排。
