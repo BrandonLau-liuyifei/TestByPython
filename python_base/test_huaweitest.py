@@ -578,3 +578,115 @@ HI31.题目描述
 # list_01.reverse()
 # sen_02=" ".join(list_01)
 # print(sen_02)
+"""
+HJ33 整数与IP地址间的转换
+描述
+原理：ip地址的每段可以看成是一个0-255的整数，把每段拆分成一个二进制形式组合起来，然后把这个二进制数转变成
+一个长整数。
+举例：一个ip地址为10.0.3.193
+每段数字             相对应的二进制数
+10                   00001010
+0                    00000000
+3                    00000011
+193                  11000001
+组合起来即为：00001010 00000000 00000011 11000001,转换为10进制数就是：167773121，即该IP地址转换后的数字就是它了。
+本题含有多组输入用例，每组用例需要你将一个ip地址转换为整数、将一个整数转换为ip地址。
+输入描述：
+输入 
+1 输入IP地址
+2 输入10进制型的IP地址
+10.0.3.193
+167969729
+输出描述：
+输出
+1 输出转换成10进制的IP地址
+2 输出转换后的IP地址
+167773121
+10.3.3.193
+"""
+# def ip_to_num(a):
+#     list_01 = a.split('.')
+#     str_02 = ''
+#     for i in list_01:
+#         str_01 = bin(int(i))[2:].zfill(8)
+#         str_02 = str_02+str_01
+#     convert_num = int(str_02,2)
+#     return convert_num
+# def num_to_ip(b):
+#     str_03 = bin(int(b))[2:].zfill(32)
+#     list_02 = []
+#     part_01,part_02,part_03,part_04 = str_03[0:8],str_03[8:16],str_03[16:24],str_03[24:32]
+#     for i in [part_01,part_02,part_03,part_04]:
+#         str_04 = str(int(i,2))
+#         list_02.append(str_04)
+#     convert_ip = '.'.join(list_02)
+#     return convert_ip
+# while True:
+#     try:
+#         a=input()
+#         print(ip_to_num(a))
+#         b=input()
+#         print(num_to_ip(b))
+#     except:
+#         break
+"""
+HJ34 图片整理
+Lily上课时使用字母数字图片教小朋友们学习英语单词，每次都需要把这些图片按照大小（ASCII码值从小到大）排列收好。请大家给Lily帮忙，通过C语言解决。
+本题含有多组样例输入。
+输入描述：
+Lily使用的图片包括"A"到"Z"、"a"到"z"、"0"到"9"。输入字母或数字个数不超过1024。
+Ihave1nose2hands10fingers
+输出描述：
+Lily的所有图片按照从小到大的顺序输出
+0112Iaadeeefghhinnnorsssv
+"""
+# while True:
+#     try:
+#         str_01 = input()
+#         num_list = []
+#         upper_list = []
+#         lower_list = []
+#         for i in str_01:
+#             if i.isalnum():
+#                 num_list.append(str(i))
+#             elif i.isupper():
+#                 upper_list.append(i)
+#             elif i.lower():
+#                 lower_list.append(i)
+#         print("".join(num_list) + "".join(upper_list) + "".join(lower_list))
+#     except:
+#         break
+"""
+HJ35 蛇形矩阵
+蛇形矩阵是由1开始的自然数依次排列成的一个矩阵上三角形。
+例如，当输入5时，应该输出的三角形为：
+1 3 6 10 15
+2 5 9 14
+4 8 13
+7 12
+11
+请注意本题含有多组样例输入。
+输入描述：
+输入正整数N（N不大于100）
+4
+输出描述：
+输出一个N行的蛇形矩阵。
+1 3 6 10
+2 5 9
+4 8
+7
+"""
+while True:
+    try:
+        num_01 = int(input())
+        s = 1
+        for i in range(num_01):
+            s = s + i
+            print(s, end=' ')
+            p = s
+            for j in range(i + 1, num_01):
+                p = p + j + 1
+                print(p, end=' ')
+            print()
+    except:
+        break
