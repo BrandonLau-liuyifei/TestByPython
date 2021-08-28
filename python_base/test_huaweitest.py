@@ -750,3 +750,267 @@ HJ37 统计每个月兔子的总数
 #         print(func(n))
 #     except:
 #         break
+"""
+HJ38 求小球落地5次后所经历的路程和第
+假设一个球从任意高度自由落下，每次落地后反跳回原高度的一半; 再落下, 求它在第5次落地时，共经历多少米?第5次反弹多高？
+最后的误差判断是小数点6位
+输入描述：1
+输入起始高度，int型
+输出描述：2.875
+0.03125
+分别输出第5次落地时，共经过多少米第5次反弹多高
+"""
+# h_01 = int(input())
+# dist = h_01
+# distance = h_01
+# last = 0.0
+# for i in range(4):
+#     dist = dist / 2
+#     distance = distance + dist * 2
+# dist = dist / 2
+# print('%.6f' % distance)
+# print('%.6f' % dist)
+"""
+HJ40 统计字符
+描述
+输入一行字符，分别统计出包含英文字母、空格、数字和其它字符的个数。
+本题包含多组输入。
+输入描述：
+输入一行字符串，可以有空格
+1qazxsw23 edcvfr45tgbn hy67uj m,ki89ol.\\/;p0-=\\][
+输出描述：
+统计其中英文字符，空格字符，数字字符，其他字符的个数
+26
+3
+10
+12
+"""
+# while True:
+#     try:
+#         s = input()
+#         en_str = ''
+#         spa_str = ''
+#         num_str = ''
+#         oth_str = ''
+#         for i in s:
+#             if i.isalpha():
+#                 en_str += i
+#             elif i.isspace():
+#                 spa_str += i
+#             elif i.isdigit():
+#                 num_str += i
+#             else:
+#                 oth_str += i
+#         print(len(en_str))
+#         print(len(spa_str))
+#         print(len(num_str))
+#         print(len(oth_str))
+#     except:
+#         break
+"""
+HJ41 称砝码
+描述
+现有一组砝码，重量互不相等，分别为m1,m2,m3…mn；
+每种砝码对应的数量为x1,x2,x3...xn。现在要用这些砝码去称物体的重量(放在同一侧)，问能称出多少种不同的重量。
+注：
+称重重量包括0
+输入描述：
+输入包含多组测试数据。
+对于每组测试数据：
+第一行：n --- 砝码数(范围[1,10])
+第二行：m1 m2 m3 ... mn --- 每个砝码的重量(范围[1,2000])
+第三行：x1 x2 x3 .... xn --- 每个砝码的数量(范围[1,6])
+2
+1 2
+2 1
+输出描述：
+利用给定的砝码可以称出的不同的重量数
+5
+"""
+# while True:
+#     try:
+#         a = int(input())
+#         weight = list(map(int,input().split()))
+#         count = list(map(int,input().split()))
+#         fm,tmp,ans = [],[],[0]
+#         # 将所有的砝码放入列表
+#         for i in range(a):
+#             for j in range(count[i]):
+#                 fm.append(weight[i])
+#         # 称重
+#         for i in fm:
+#             tmp = set(ans)
+#             for j in tmp:
+#                 ans.append(i+j)
+#         #去重
+#         res = set(ans)
+#         print(len(res))
+#     except:
+#         break
+"""
+HJ45 名字的漂亮度
+描述
+给出一个名字，该名字有26个字符组成，定义这个字符串的“漂亮度”是其所有字母“漂亮度”的总和。 
+每个字母都有一个“漂亮度”，范围在1到26之间。没有任何两个不同字母拥有相同的“漂亮度”。字母忽略大小写。
+给出多个名字，计算每个名字最大可能的“漂亮度”。
+本题含有多组数据。
+输入描述：
+整数N，后续N个名字
+2
+zhangsan
+lisi
+输出描述：
+每个名称可能的最大漂亮程度
+192
+101
+"""
+# while True:
+#     try:
+#         times = int(input().strip())
+#         for i in range(times):
+#             name = input().strip()
+#             char_dict = {}
+#             for key in name:
+#                 if key in char_dict.keys():
+#                     char_dict[key] += 1
+#                 else:
+#                     char_dict[key] = 1
+# #             print(char_dict)
+#             value_list = []
+#             for key in char_dict.keys():
+#                 value_list.append(char_dict[key])
+#             beauty_value = 26
+#             total_value = 0
+#             value_list.sort(reverse = True)
+# #             print(value_list)
+#             for num in value_list:
+#                 total_value += beauty_value * num
+#                 beauty_value -= 1
+#             print(total_value)
+#     except:
+#         break
+"""
+HJ46 截取字符串
+描述
+输入一个字符串和一个整数k，截取字符串的前k个字符并输出
+本题输入含有多组数据
+输入描述：
+1.输入待截取的字符串
+2.输入一个正整数k，代表截取的长度
+abABCcDEF
+6
+输出描述：
+截取后的字符串
+abABCc
+"""
+# while True:
+#     try:
+#         a = input()
+#         b = int(input())
+#         print(a[0:b])
+#     except:
+#         break
+"""
+HJ49 多线程
+问题描述：有4个线程和1个公共的字符数组。线程1的功能就是向数组输出A，线程2的功能就是向字符输出B，线程3的功能就是向数组输出C，线程4的功能就是向数组输出D。要求按顺序向数组赋值ABCDABCDABCD，ABCD的个数由线程函数1的参数指定。[注：C语言选手可使用WINDOWS SDK库函数]
+接口说明：
+void init();  //初始化函数
+void Release(); //资源释放函数
+unsignedint__stdcall ThreadFun1(PVOID pM)  ; //线程函数1，传入一个int类型的指针[取值范围：1 – 250，测试用例保证]，用于初始化输出A次数，资源需要线程释放
+unsignedint__stdcall ThreadFun2(PVOID pM)  ;//线程函数2，无参数传入
+unsignedint__stdcall ThreadFun3(PVOID pM)  ;//线程函数3，无参数传入
+Unsigned int __stdcall ThreadFunc4(PVOID pM);//线程函数4，无参数传入
+char  g_write[1032]; //线程1,2,3,4按顺序向该数组赋值。不用考虑数组是否越界，测试用例保证
+输入描述：
+本题含有多个样例输入。
+输入一个int整数10
+输出描述：
+对于每组样例，输出多个ABCDABCDABCDABCDABCDABCDABCDABCDABCDABCD
+"""
+# import threading
+# while True:
+#     try:
+#         arr = []
+#         def add_char(char):
+#             # global arr
+#             arr.append(char)
+#         for i in range(int(input())):
+#             for j in 'ABCD':
+#                 t = threading.Thread(target = add_char,args = (j))
+#                 t.start()
+#                 t.join()
+#         print(''.join(arr))
+#     except:
+#         break
+"""
+HJ50 四则运算
+描述
+输入一个表达式（用字符串表示），求这个表达式的值。
+保证字符串中的有效字符包括[‘0’-‘9’],‘+’,‘-’, ‘*’,‘/’ ,‘(’， ‘)’,‘[’, ‘]’,‘{’ ,‘}’。且表达式一定合法
+输入描述：
+输入一个算术表达式3+2*{1+2*[-4/(8-6)+7]}
+输出描述：
+得到计算结果25
+"""
+s = input()
+s = s.replace('[', '(')
+s = s.replace(']', ')')
+s = s.replace('{', '(')
+s = s.replace('}', ')')
+r = eval(s)
+print(int(r))
+"""
+HJ51 输出单向链表中倒数第k个结点
+描述
+
+输入一个单向链表，输出该链表中倒数第k个结点，链表的倒数第1个结点为链表的尾指针。
+链表结点定义如下：
+struct ListNode
+{
+int       m_nKey;
+ListNode* m_pNext;
+};
+正常返回倒数第k个结点指针，异常返回空指针
+本题有多组样例输入。
+输入描述：
+输入说明
+1 输入链表结点个数
+2 输入链表的值
+3 输入k的值
+输出描述：
+输出一个整数
+"""
+# while True:
+#     try:
+#         n1 = int(input())
+#         l1 = input().strip()
+#         n2 = int(input())
+#         l2 = l1.split(" ")
+#         if n2 !=0:
+#             print(l2[-n2])
+#         else:
+#             print(0)
+#     except:
+#         break
+"""
+HJ107 求解立方根
+描述
+计算一个数字的立方根，不使用库函数。
+保留一位小数。
+输入描述：
+待求解参数，为double类型（一个实数）216
+输出描述：
+输入参数的立方根。保留一位小数。6.0
+"""
+# while True:
+#     try:
+#         n = float(input())
+#         if n == 0:
+#             print(0)
+#         elif n < 0:
+#             n = abs(n)
+#             print(round(n**(1/3)*(-1),1))
+#         else:
+#             print(round(n**(1/3),1))
+#     except:
+#          break
