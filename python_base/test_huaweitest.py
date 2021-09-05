@@ -1049,3 +1049,353 @@ HJ54 表达式求值
 计算出结果值405
 """
 print(eval(input()))
+"""
+HJ55 挑7
+描述
+输出7有关数字的个数，包括7的倍数，还有包含7的数字（如17，27，37...70，71，72，73...）的个数（一组测试用例里可能有多组数据，请注意处理）
+输入描述：
+一个正整数N。(N不大于30000)
+20
+10
+输出描述：
+不大于N的与7有关的数字个数，例如输入20，与7有关的数字包括7,14,17.
+3
+1
+"""
+# while True:
+#     try:
+#         s = int(input())
+#         s01 = set()
+#         for i in range(s+1):
+#             if i == 0:
+#                 continue
+#             if i%7 == 0:
+#                 s01.add(i)
+#             if '7' in str(i):
+#                 s01.add(i)
+#         print(len(s01))
+#     except:
+#         break
+"""
+HJ56 完全数计算
+描述
+完全数（Perfect number），又称完美数或完备数，是一些特殊的自然数。
+它所有的真因子（即除了自身以外的约数）的和（即因子函数），恰好等于它本身。
+例如：28，它有约数1、2、4、7、14、28，除去它本身28外，其余5个数相加，1+2+4+7+14=28。s
+输入n，请输出n以内(含n)完全数的个数。计算范围, 0 < n <= 500000
+本题输入含有多组样例。
+输入描述：
+输入一个数字n
+1000
+7
+100
+输出描述：
+输出不超过n的完全数的个数
+3
+1
+2
+"""
+# while True:
+#     try:
+#         n = int(input())  # 输入
+#         m = 0  # 输出，即个数
+#         for i in range(2,n+1):  # 第一重循环，遍历从2-n的数，每一次遍历都是判断是否存在
+#             s = 1   # 总和，1必定是因子，所以先加上
+#             for j in range(2,i):  # 第二重循环，为了找因子，从2开始遍历
+#                 if i % j ==0:
+#                     s += j  # 是的话，就加上
+#             if s == i:  # 最后判断是否是完全数，如果是就计上
+#                 m += 1
+#         print(m)
+#     except:
+#         break
+"""
+HJ57 高精度整数加法
+描述
+输入两个用字符串表示的整数，求它们所表示的数之和。
+字符串的长度不超过10000。
+本题含有多组样例输入。
+输入描述：
+输入两个字符串。保证字符串只含有'0'~'9'字符
+9876543210
+1234567890
+输出描述：
+输出求和后的结果
+11111111100
+"""
+# while True:
+#     try:
+#         s1 = int(input())
+#         s2 = int(input())
+#         n3 = s1+s2
+#         print(str(n3))
+#     except:
+#         break
+"""
+HJ58 输入n个整数，输出其中最小的k个
+描述
+输入n个整数，输出其中最小的k个。
+本题有多组输入样例，请使用循环读入，比如while(cin>>)等方式处理
+输入描述：
+第一行输入两个整数n和k
+第二行输入一个整数数组
+5 2
+1 3 5 7 2
+输出描述：
+输出一个从小到大排序的整数数组
+1 2
+"""
+# while True:
+#     try:
+#         s = input()
+#         list_01 = s.split(" ")
+#         n = int(list_01[0]) if int(list_01[0]) < int(list_01[1]) else int(list_01[1])
+#         s2 = input().strip()
+#         list_02 = s2.split(" ")
+#         list_04 = []
+#         for i in list_02:
+#             list_04.append(int(i))
+#         list_04.sort()
+#         list_03 = list_04[0:int(n)]
+#         list_05 = []
+#         for i in list_03:
+#             list_05.append(str(i))
+#         s3 = " ".join(list_05)
+#         print(s3)
+#     except:
+#         break
+"""
+HJ59 找出字符串中第一个只出现一次的字符
+输入描述：
+输入几个非空字符串
+asdfasdfo
+aabb
+输出描述：
+输出第一个只出现一次的字符，如果不存在输出-1
+o
+-1
+"""
+# while True:
+#     try:
+#         s = input()
+#         n1 = 0
+#         n2 = -1
+#         list1 = []
+#         for i in s:
+#             if s.count(i) == 1:
+#                 n1 = n1 + 1
+#                 list1.append(i)
+#         if n1 ==0:
+#             print(n2)
+#         else:
+#             print(list1[0])
+#     except:
+#         break
+"""
+HJ60 查找组成一个偶数最接近的两个素数
+描述
+任意一个偶数（大于2）都可以由2个素数组成，组成偶数的2个素数有很多种情况，本题目要求输出组成指定偶数的两个素数差值最小的素数对。
+本题含有多组样例输入。
+输入描述：
+输入一个偶数
+20
+输出描述：
+输出两个素数
+7
+13
+"""
+# def is_prime(x):
+#     if x < 2:
+#         return False
+#     for n in range(2, x):
+#         if x % n == 0:
+#             return False
+#     return True
+#
+# while True:
+#     try:
+#         n = int(input())
+#         for i in range(n//2, 1, -1):
+#             if is_prime(i) and is_prime(n-i):
+#                 print(i,n-i,sep='\n')
+#                 break
+#     except:
+#         break
+"""
+HJ61 放苹果
+描述
+题目描述
+把m个同样的苹果放在n个同样的盘子里，允许有的盘子空着不放，问共有多少种不同的分法？（用K表示）5，1，1和1，5，1 是同一种分法。
+数据范围：0<=m<=10，1<=n<=10。
+本题含有多组样例输入。
+输入描述：
+输入两个int整数
+7 3
+输出描述：
+输出结果，int型
+8
+"""
+'''
+解题思路：
+f(m,n)表示将m个苹果放入n个盘子中的摆放方法总数，
+放苹果分为两种情况，一种是有1个盘子为空 f(m,n-1)，另一种是每个盘子上至少有1个苹果f(m-n,n)，
+递推关系：f(m,n) = f(m,n-1) + f(m-n,n)
+边界条件：当m==1 or n==1时，f(m,n) =1
+'''
+# def f(m,n):
+#     if m<0 or n<0:
+#         return 0
+#     elif m==1 or n==1:
+#         return 1
+#     else:
+#         return f(m,n-1) + f(m-n,n)
+#
+# while 1:
+#     try:
+#         m,n = map(int,input().strip().split())
+#         print(f(m,n))
+#     except:
+#         break
+"""
+HJ62 查找输入整数二进制中1
+描述
+输入一个正整数，计算它在二进制下的1的个数。
+注意多组输入输出！！！！！！
+输入描述：
+输入一个整数5
+输出描述：
+计算整数二进制中1的个数2
+"""
+# while True:
+#     try:
+#         n1 = int(input())
+#         s1 = bin(n1)
+#         n2 = s1.count('1')
+#         print(n2)
+#     except:
+#         break
+"""
+HJ63 DNA序列
+描述
+一个DNA序列由A/C/G/T四个字母的排列组合组成。G和C的比例（定义为GC-Ratio）是序列中G和C两个字母的总的出现次数除以总的字母数目（也就是序列长度）。在基因工程中，这个比例非常重要。因为高的GC-Ratio可能是基因的起始点。
+给定一个很长的DNA序列，以及限定的子串长度N，请帮助研究人员在给出的DNA序列中从左往右找出GC-Ratio最高且长度为N的第一个子串。
+DNA序列为ACGT的子串有:ACG,CG,CGT等等，但是没有AGT，CT等等
+输入描述：
+输入一个string型基因序列，和int型子串的长度
+ACGT
+2
+输出描述：
+找出GC比例最高的子串,如果有多个则输出第一个的子串
+CG
+"""
+# while True:
+#     try:
+#         s1 = input()
+#         n1 = int(input())
+#         list01 = []
+#         for i in range(len(s1)-n1+1):
+#             list01.append(s1[i:i+n1])
+#         list_02 = [i.count('C')+i.count('G') for i in list01]
+#         n = max(list_02)
+#         index_01 = list_02.index(n)
+#         print(list01[index_01])
+#     except:
+#         break
+"""
+HJ65 查找两个字符串a,b中的最长公共子串
+描述
+查找两个字符串a,b中的最长公共子串。若有多个，输出在较短串中最先出现的那个。
+注：子串的定义：将一个字符串删去前缀和后缀（也可以不删）形成的字符串。请和“子序列”的概念分开！
+本题含有多组输入数据！
+输入描述：
+输入两个字符串
+输出描述：
+返回重复出现的字符
+"""
+# while True:
+#     try:
+#         s1 = input()
+#         s2 = input()
+#         if len(s1) <= len(s2):
+#             sho = s1
+#             lon = s2
+#         else:
+#             sho = s2
+#             lon = s1
+#         s3 = ""
+#         for i in range(0,len(sho)):
+#             for j in range(1,len(sho) + 1):
+#                 if sho[i:j] in lon:
+#                     if len(sho[i:j]) > len(s3):
+#                         s3 = sho[i:j]
+#         print(s3)
+#     except:
+#         break
+"""
+HJ66 配置文件恢复
+描述
+
+有6条配置命令，它们执行的结果分别是：
+命   令	执   行
+reset	reset what
+reset board	board fault
+board add	where to add
+board delete	no board at all
+reboot backplane	impossible
+backplane abort	install first
+he he	unknown command
+注意：he he不是命令。
+为了简化输入，方便用户，以“最短唯一匹配原则”匹配：
+1、若只输入一字串，则只匹配一个关键字的命令行。例如输入：r，根据该规则，匹配命令reset，执行结果为：reset what；输入：res，根据该规则，匹配命令reset，执行结果为：reset what； 
+2、若只输入一字串，但本条命令有两个关键字，则匹配失败。例如输入：reb，可以找到命令reboot backpalne，但是该命令有两个关键词，所有匹配失败，执行结果为：unknown command 
+3、若输入两字串，则先匹配第一关键字，如果有匹配但不唯一，继续匹配第二关键字，如果仍不唯一，匹配失败。例如输入：r b，找到匹配命令reset board 和 reboot backplane，执行结果为：unknown command。
+4、若输入两字串，则先匹配第一关键字，如果有匹配但不唯一，继续匹配第二关键字，如果唯一，匹配成功。例如输入：b a，无法确定是命令board add还是backplane abort，匹配失败。
+5、若输入两字串，第一关键字匹配成功，则匹配第二关键字，若无匹配，失败。例如输入：bo a，确定是命令board add，匹配成功。
+6、若匹配失败，打印“unknown command”
+输入描述：
+reset
+reset board
+board add
+board delet
+reboot backplane
+backplane abort
+多行字符串，每行字符串一条命令
+输出描述：
+reset what
+board fault
+where to add
+no board at all
+impossible
+install first
+执行结果，每条命令输出一行
+"""
+invalid = 'unknown command'
+while True:
+    try:
+        dd = {'reset': 'reset what',
+              'reset board': 'board fault',
+              'board add': 'where to add',
+              'board delete': 'no board at all',
+              'reboot backplane': 'impossible',
+              'backplane abort': 'install first',
+              'he he': 'unknown command'
+              }
+        out = ''
+        i = input().split()
+        count = 0
+        for j in dd:
+            if len(i) == 2:
+                if i[0] in j and i[1] in j:
+                    count += 1
+                    out = dd[j]
+            elif len(i) == 1:
+                if i[0] in j:
+                    if len(j.split()) == 1:
+                        count += 1
+                        out = dd[j]
+        if count == 1:
+            print(out)
+        else:
+            print(invalid)
+    except:
+        break
