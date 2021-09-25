@@ -1369,33 +1369,193 @@ impossible
 install first
 执行结果，每条命令输出一行
 """
-invalid = 'unknown command'
-while True:
-    try:
-        dd = {'reset': 'reset what',
-              'reset board': 'board fault',
-              'board add': 'where to add',
-              'board delete': 'no board at all',
-              'reboot backplane': 'impossible',
-              'backplane abort': 'install first',
-              'he he': 'unknown command'
-              }
-        out = ''
-        i = input().split()
-        count = 0
-        for j in dd:
-            if len(i) == 2:
-                if i[0] in j and i[1] in j:
-                    count += 1
-                    out = dd[j]
-            elif len(i) == 1:
-                if i[0] in j:
-                    if len(j.split()) == 1:
-                        count += 1
-                        out = dd[j]
-        if count == 1:
-            print(out)
-        else:
-            print(invalid)
-    except:
-        break
+# invalid = 'unknown command'
+# while True:
+#     try:
+#         dd = {'reset': 'reset what',
+#               'reset board': 'board fault',
+#               'board add': 'where to add',
+#               'board delete': 'no board at all',
+#               'reboot backplane': 'impossible',
+#               'backplane abort': 'install first',
+#               'he he': 'unknown command'
+#               }
+#         out = ''
+#         i = input().split()
+#         count = 0
+#         for j in dd:
+#             if len(i) == 2:
+#                 if i[0] in j and i[1] in j:
+#                     count += 1
+#                     out = dd[j]
+#             elif len(i) == 1:
+#                 if i[0] in j:
+#                     if len(j.split()) == 1:
+#                         count += 1
+#                         out = dd[j]
+#         if count == 1:
+#             print(out)
+#         else:
+#             print(invalid)
+#     except:
+#         break
+"""
+HJ84 统计大写字母个数
+描述
+找出给定字符串中大写字符(即'A'-'Z')的个数。
+输入描述：
+本题含有多组样例输入
+对于每组样例，输入一行，代表待统计的字符串
+add123#$%#%#O
+150175017(&^%&$vabovbao
+输出描述：
+对于每组样例，输出一个整数，代表字符串中大写字母的个数
+1
+0
+"""
+# while True:
+#     try:
+#         s = input()
+#         n = 0
+#         for i in s:
+#             if i.isupper():
+#                 n = n + 1
+#             else:
+#                 continue
+#         print(n)
+#     except:
+#         break
+"""
+HJ68 成绩排序
+描述
+查找和排序
+题目：输入任意（用户，成绩）序列，可以获得成绩从高到低或从低到高的排列,相同成绩
+都按先录入排列在前的规则处理。
+例示：
+jack      70
+peter     96
+Tom       70
+smith     67
+从高到低  成绩 
+peter     96 
+jack      70 
+Tom       70 
+smith     67
+从低到高
+smith     67
+jack      70
+Tom       70 
+peter     96
+注：0代表从高到低，1代表从低到高
+本题含有多组输入数据！
+输入描述：
+输入多行，先输入要排序的人的个数，然后分别输入他们的名字和成绩，以一个空格隔开
+输出描述：
+按照指定方式输出名字和成绩，名字和成绩之间以一个空格隔开
+"""
+# while True:
+#     try:
+#         n1 = int(input())
+#         n2 = int(input())
+#         list01 = []
+#         for i in range(n1):
+#             ele01 = input().split(" ")
+#             list01.append(ele01)
+#         for i in sorted(list01,key = lambda e:int(e[1]),reverse = 1-n2):
+#             print(" ".join(i))
+#     except:
+#         break
+"""
+HJ71 字符串通配符
+描述
+问题描述：在计算机中，通配符一种特殊语法，广泛应用于文件搜索、数据库、正则表达式等领域。现要求各位实现字符串通配符的算法。
+要求：
+实现如下2个通配符：
+*：匹配0个或以上的字符（字符由英文字母，数字0-9和 '.' 组成，下同）
+？：匹配1个字符
+注意：匹配时不区分大小写。
+输入：
+通配符表达式；
+一组字符串。
+输出：
+返回不区分大小写的匹配结果，匹配成功输出true，匹配失败输出false
+本题含有多组样例输入！
+输入描述：
+先输入一个带有通配符的字符串，再输入一个需要匹配的字符串
+te?t*.*
+txt12.xls
+输出描述：
+返回不区分大小写的匹配结果，匹配成功输出true，匹配失败输出false
+false
+"""
+# import re
+# while True:
+#     try:
+#         p, s = str(input()), str(input())
+#         a = "[a-zA-Z0-9.]{0,}"
+#         b = "[a-zA-Z0-9.]{1}"
+#         p = p.replace('*', a)
+#         p = p.replace('?', b)
+#         x = re.search(p, s, re.I) #忽略大小写
+#         if not x: #如果没有匹配的则结束
+#             print('false')
+#             continue
+#         elif s in x.group(): # 有匹配项则判断匹配项是否存在s
+#             print('true')
+#         else:
+#             print('false')
+#     except:
+#         break
+# import re
+# while True:
+#     try:
+#         reg01 = str(input())
+#         sen01 = str(input())
+#         prin01 = '[a-zA-Z0-9.]{0,}'
+#         prin02 = '[a-zA-Z0-9.]{1}'
+#         reg01 = reg01.replace('*', prin01)
+#         reg01 = reg01.replace('?', prin02)
+#         res01 = re.search(reg01, sen01, re.I)
+#         if not res01:
+#             print('false')
+#             continue
+#         elif sen01 in res01.group():
+#             print('true')
+#         else:
+#             print('false')
+#     except:
+#         break
+"""
+HJ72 百钱买百鸡问题
+描述
+公元前五世纪，我国古代数学家张丘建在《算经》一书中提出了“百鸡问题”：鸡翁一值钱五，鸡母一值钱三，鸡雏三值钱一。百钱买百鸡，问鸡翁、鸡母、鸡雏各几何？
+详细描述：
+接口说明
+原型：
+int GetResult(vector &list)
+输入参数：
+        无
+输出参数（指针指向的内存区域保证有效）：
+    list  鸡翁、鸡母、鸡雏组合的列表
+返回值：
+     -1 失败     
+     0 成功
+输入描述：
+输入任何一个整数，即可运行程序。
+1
+输出描述：
+0 25 75
+4 18 78
+8 11 81
+12 4 84
+"""
+# n1 = input()
+# for i in range(20):
+#     for j in range(33):
+#         if 5*i + 3*j + 1/3*(100-i-j) == 100:
+# #             print('{} {} {}'.format(i,j,100-i-j))
+#             print('%d %d %d' % (i,j,100-i-j))
+"""
+
+
+"""
