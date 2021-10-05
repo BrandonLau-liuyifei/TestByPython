@@ -993,28 +993,6 @@ ListNode* m_pNext;
 #     except:
 #         break
 """
-HJ107 求解立方根
-描述
-计算一个数字的立方根，不使用库函数。
-保留一位小数。
-输入描述：
-待求解参数，为double类型（一个实数）216
-输出描述：
-输入参数的立方根。保留一位小数。6.0
-"""
-# while True:
-#     try:
-#         n = float(input())
-#         if n == 0:
-#             print(0)
-#         elif n < 0:
-#             n = abs(n)
-#             print(round(n**(1/3)*(-1),1))
-#         else:
-#             print(round(n**(1/3),1))
-#     except:
-#          break
-"""
 HJ53 杨辉三角的变形
 以上三角形的数阵，第一行只有一个数1，以下每行的每个数，是恰好是它上面的数，左上角数到右上角的数，3个数之和（如果不存在某个数，认为该数就是0）。
 求第n行第一个偶数出现的位置。如果没有偶数，则输出-1。例如输入3,则输出2，输入4则输出3。
@@ -1556,6 +1534,1095 @@ int GetResult(vector &list)
 # #             print('{} {} {}'.format(i,j,100-i-j))
 #             print('%d %d %d' % (i,j,100-i-j))
 """
+HJ73 计算日期到天数转换
+描述
+根据输入的日期，计算是这一年的第几天。
+输入描述：
+输入一行，每行空格分割，分别是年，月，日
+输出描述：
+输出是这一年的第几天
+"""
+# while True:
+#     try:
+#         in01 = input()
+#         year, month, day = map(int, in01.split(' '))
+#
+#         if year <= 0 or month <= 0 or month > 12 or day <= 0 or day > 31:
+#             continue
+#         else:
+#             month_day = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+#             if (year % 100 == 0 and year % 400 == 0) or (year % 100 != 0 and year % 4 == 0):
+#                 days = sum(month_day[0:(month - 1)]) + day
+#                 print(days)
+#             else:
+#                 month_day[1] = 28
+#                 days = sum(month_day[0:(month - 1)]) + day
+#                 print(days)
+#     except:
+#         break
+"""
+HJ74 参数解析
+描述
+在命令行输入如下命令：
+xcopy /s c:\ d:\，
+各个参数如下：
+参数1：命令字xcopy
+参数2：字符串/s
+参数3：字符串c:\
+参数4: 字符串d:\
+请编写一个参数解析程序，实现将命令行各个参数解析出来。
+解析规则：
+1.参数分隔符为空格 
+2.对于用""包含起来的参数，如果中间有空格，不能解析为多个参数。比如在命令行输入xcopy /s "C:\program files" "d:\"时，参数仍然是4个，第3个参数应该是字符串C:\program files，而不是C:\program，注意输出参数时，需要将""去掉，引号不存在嵌套情况。
+3.参数不定长 
+4.输入由用例保证，不会出现不符合要求的输入
+输入描述：
+输入一行字符串，可以有空格
+xcopy /s c:\\ d:\\
+输出描述：
+输出参数个数，分解后的参数，每个参数都独占一行
+4
+xcopy
+/s
+c:\\
+d:\\
+"""
+# import re
+# while True:
+#     try:
+#         s = input()
+#         reg01 = r'([^ "]+)|(".+?")'
+#         list01 = list(re.finditer(reg01, s))
+#         print(len(list01))
+#         for i in list01:
+#             print(i.group().strip('"'))
+#     except:
+#         break
+# import re
 
+# params = list(re.finditer(r'([^ "]+)|(".+?")', input()))
+# print(len(params))
+# for p in params:
+#     print(p.group().strip('"'))
+"""
+HJ75 公共子串计算
+描述
+给定两个只包含小写字母的字符串，计算两个字符串的最大公共子串的长度。
+注：子串的定义指一个字符串删掉其部分前缀和后缀（也可以不删）后形成的字符串。
+输入描述：
+输入两个只包含小写字母的字符串
+asdfas
+werasdfaswer
+输出描述：
+输出一个整数，代表最大公共子串的长度
+6
+"""
+# while True:
+#     try:
+#         s1 = input()
+#         s2 = input()
+#         if len(s1) <= len(s2):
+#             min_str = s1
+#             max_str = s2
+#         else:
+#             min_str = s2
+#             max_str = s1
+#         s3 = ""
+#         for i in range(0,len(min_str)):
+#             for j in range(1,len(min_str)+1):
+#                 if min_str[i:j] in max_str:
+#                     if len(min_str[i:j]) > len(s3):
+#                         s3 = min_str[i:j]
+#         print(len(s3))
+#     except:
+#         break
+"""
+HJ76 尼科彻斯定理
+描述
+验证尼科彻斯定理，即：任何一个整数m的立方都可以写成m个连续奇数之和。
+例如：
+1^3=1
+2^3=3+5
+3^3=7+9+11
+4^3=13+15+17+19
+输入一个正整数m（m≤100），将m的立方写成m个连续奇数之和的形式输出。
+本题含有多组输入数据。
+输入描述：
+输入一个int整数
+输出描
+输出分解后的string
+"""
+# 第一个是我的答案，借鉴了代码3的字符串的倒序比较，字符串1/2比较法难度较大
+# while True:
+#     try:
+#         m = int(input())
+#         m3 = m**3
+#         list01 = []
+#         for i in range(1,m3,2):
+#             list01.append(i)
+#         for i in range(len(list01)-m):
+#             list02 = list01[i:m+i]
+#             s = sum(list02[0:m])
+#             if s != m3:
+#                 continue
+#             else:
+#                 list03 = [str(j) for j in list02]
+#                 print('+'.join(list03))
+#     except:
+#         break
+# while True:
+#     try:
+#        a=int(input())
+#        num=[]
+#        b=a**2-a+1
+#        for i in range(a):
+#            c=b+2*i
+#            num.append(str(c))
+#        print("+".join(num))
+#     except:
+#        break
+#
+# while True:
+#     try:
+#         m = int(input())
+#         s = []
+#         for i in range(1, m**3):  # 最大基数一定小于基数之和，即:m**3
+#             if i%2 != 0:
+#                 s.append(i)  # 将1到m**3的基数，从小到大逐一追加到列表 s
+#                 if m ** 3 == sum(s[-m:]):
+#                     s = s[-m:]  # 如果追加某个基数后，列表最后m位之和正好等于 m**3 时，将列表 s 重新赋值为所要找的那 m 个基数
+#                     break   # 找到那 m 个基数结束当前循环以节约时间
+#         result = str(s[0])  # 输出结果初始赋值列表s的第一个数
+#         for k in range(1, m):
+#             result += '+'+str(s[k])
+#         print(result)
+#     except:
+#         break
+"""
+HJ80 整型数组合并
+描述
+题目标题：
+将两个整型数组按照升序合并，并且过滤掉重复数组元素。
+输出时相邻两数之间没有空格。
+请注意本题有多组样例。
+输入描述：
+输入说明，按下列顺序输入：
+1 输入第一个数组的个数
+2 输入第一个数组的数值
+3 输入第二个数组的个数
+4 输入第二个数组的数值
+3
+1 2 5
+4
+-1 0 3 2
+输出描述：
+输出合并之后的数组
+-101235
+"""
+# while True:
+#     try:
+#         set01 = set()
+#         str01 = ''
+#         s1 = int(input())
+#         list01 = input().strip().split()
+#         list02 = [int(i) for i in list01]
+#         for j in range(s1):
+#             set01.add(list02[j])
+#         s2 = int(input())
+#         list03 = input().strip().split()
+#         list04 = [int(i) for i in list03]
+#         for j in range(s2):
+#             set01.add(list04[j])
+#         for i in sorted(set01):
+#             str01=str01+str(i)
+#         print(str01)
+#     except:
+#         break
+"""
+HJ81 字符串字符匹配
+描述
+判断短字符串S中的所有字符是否在长字符串T中全部出现。
+请注意本题有多组样例输入。
+数据范围:1<=len(S),len(T)<=200
+输入描述：
+输入两个字符串。第一个为短字符串，第二个为长字符串。两个字符串均由小写字母组成。
+bc
+abc
+apgmlivuembu
+tyjmrcuneguxmsqwjslqvfmw
+bca
+abc
+输出描述：
+如果短字符串的所有字符均在长字符串中出现过，则输出字符串"true"。否则输出字符串"false"。
+true
+false
+true
+"""
+# while True:
+#     try:
+#         s1 = input()
+#         s2 = input()
+#         list1 = []
+#         for i in s1:
+#             if i in s2:
+#                 list1.append("0")
+#             else:
+#                 list1.append("1")
+#         if "1" in list1:
+#             print('false')
+#         else:
+#             print('true')
+#     except:
+#         break
+"""
+HJ83 二维数组操作
+描述
+
+有一个大小的数据表，你会依次进行以下5种操作：
+1.输入和，初始化大小的表格。
+2.输入
+x
+1
+x 
+1
+​	
+ 、
+y
+1
+y 
+1
+​	
+ 、
+x
+2
+x 
+2
+​	
+ 、
+y
+2
+y 
+2
+​	
+ ，交换坐标在
+(
+x
+1
+,
+y
+1
+)
+(x 
+1
+​	
+ ,y 
+1
+​	
+ )和
+(
+x
+2
+,
+y
+2
+)
+(x 
+2
+​	
+ ,y 
+2
+​	
+ )的两个数。
+3.输入，在第行上方添加一行。
+4.输入，在第列左边添加一列。
+5.输入、，查找坐标为的单元格的值。
+请编写程序，判断对表格的各种操作是否合法。
+详细要求:
+1.数据表的最大规格为9行*9列，对表格进行操作时遇到超出规格应该返回错误。
+2.对于插入操作，如果插入后行数或列数超过9了则应返回错误。如果插入成功了则将数据表恢复至初始化的大小，多出的数据则应舍弃。
+3.所有输入坐标操作，对大小的表格，行号坐标只允许0~m-1，列号坐标只允许0~n-1。超出范围应该返回错误。
+本题含有多组样例输入！
+输入描述：
+
+输入数据按下列顺序输入：
+1 表格的行列值
+2 要交换的两个单元格的行列值
+3 输入要插入的行的数值
+4 输入要插入的列的数值
+5 输入要查询的单元格的坐标
+4 9
+5 1 2 6
+0
+8
+2 3
+4 7
+4 2 3 2
+3
+3
+4 7
+输出描述：
+输出按下列顺序输出：
+1 初始化表格是否成功，若成功则返回0， 否则返回-1
+2 输出交换单元格是否成功
+3 输出插入行是否成功
+4 输出插入列是否成功
+5 输出查询单元格数据是否成功
+0
+-1
+0
+-1
+0
+0
+-1
+0
+0
+-1
 
 """
+# while True:
+#     try:
+#         m,n = map(int,input().split())
+#         if m < 0 and m > 9 and n < 0 and n > 9:
+#             print('-1')
+#         else:
+#             print('0')
+#             x1,y1,x2,y2 = map(int,input().split())
+#             if (0<=x1<m) and (0<=y1<n) and (0<=x2<m) and (0<=y2<n):
+#                 print('0')
+#             else:
+#                 print('-1')
+#             i_m=int(input())
+#             if (0<=i_m<m) and m<9 :
+#                 print('0')
+#             else:
+#                 print('-1')
+#             i_n=int(input())
+#             if (0<=i_n<n) and n<9:
+#                 print('0')
+#             else:
+#                 print('-1')
+#             x,y = map(int,input().split())
+#             if (0<=x<m) and (0<=y<n):
+#                 print('0')
+#             else:
+#                 print('-1')
+#     except:
+#         break
+"""
+HJ84 统计大写字母个数
+描述
+找出给定字符串中大写字符(即'A'-'Z')的个数。
+输入描述：
+本题含有多组样例输入
+对于每组样例，输入一行，代表待统计的字符串
+add123#$%#%#O
+150175017(&^%&$vabovbao
+输出描述：
+对于每组样例，输出一个整数，代表字符串中大写字母的个数
+1
+0
+"""
+# while True:
+#     try:
+#         s = input()
+#         n = 0
+#         for i in s:
+#             if i.isupper():
+#                 n = n + 1
+#             else:
+#                 continue
+#         print(n)
+#     except:
+#         break
+"""
+HJ85 最长回文子串
+描述
+给定一个仅包含小写字母的字符串，求它的最长回文子串的长度。
+所谓回文串，指左右对称的字符串。
+所谓子串，指一个字符串删掉其部分前缀和后缀（也可以不删）的字符串
+（注意：记得加上while处理多个测试用例）
+输入描述：
+输入一个仅包含小写字母的字符串
+输出描述：
+返回最长回文子串的长度
+"""
+# while True:
+#     try:
+#         s1 = input()
+#         s2 = ''
+#         for i in range(0,len(s1)):
+#             for j in range(i,(len(s1)+1)):
+#                 s3 = s1[i:j]
+#                 if s3==s3[::-1] and len(s3)>len(s2):
+#                     s2 = s3
+#         print(len(s2))
+#     except:
+#         break
+"""
+HJ86 求最大连续bit数
+描述
+求一个int类型数字对应的二进制数字中1的最大连续数，例如3的二进制为00000011，最大连续2个1
+本题含有多组样例输入。
+输入描述：
+输入一个int类型数字
+3
+5
+200
+输出描述：
+输出转成二进制之后连续1的个数
+2
+1
+2
+"""
+# while True:
+#     try:
+#         n1 = int(input())
+#         s2 = str(bin(n1)[2:])
+#         list1 = s2.split('0')
+#         n1 = 0
+#         for i in list1:
+#             if len(i) > n1:
+#                 n1 = len(i)
+#         print(n1)
+#     except:
+#         break
+"""
+HJ87 密码强度等级
+描述
+
+密码按如下规则进行计分，并根据不同的得分为密码进行安全等级划分。
+一、密码长度:
+5 分: 小于等于4 个字符
+10 分: 5 到7 字符
+25 分: 大于等于8 个字符
+二、字母:
+0 分: 没有字母
+10 分: 全都是小（大）写字母
+20 分: 大小写混合字母
+三、数字:
+0 分: 没有数字
+10 分: 1 个数字
+20 分: 大于1 个数字
+四、符号:
+0 分: 没有符号
+10 分: 1 个符号
+25 分: 大于1 个符号
+五、奖励:
+2 分: 字母和数字
+3 分: 字母、数字和符号
+5 分: 大小写字母、数字和符号
+最后的评分标准:
+>= 90: 非常安全
+>= 80: 安全（Secure）
+>= 70: 非常强
+>= 60: 强（Strong）
+>= 50: 一般（Average）
+>= 25: 弱（Weak）
+>= 0:  非常弱
+
+对应输出为：
+VERY_SECURE
+
+SECURE
+
+VERY_STRONG
+
+STRONG
+
+AVERAGE
+
+WEAK
+
+VERY_WEAK
+
+
+请根据输入的密码字符串，进行安全评定。
+注：
+字母：a-z, A-Z
+数字：0-9
+符号包含如下： (ASCII码表可以在UltraEdit的菜单view->ASCII Table查看)
+!"#$%&'()*+,-./     (ASCII码：0x21~0x2F)
+:;<=>?@             (ASCII码：0x3A~0x40)
+[\]^_`              (ASCII码：0x5B~0x60)
+{|}~                (ASCII码：0x7B~0x7E)
+
+
+提示:
+1 <= 字符串的长度<= 300
+输入描述：
+
+本题含有多组输入样例。
+每组样例输入一个string的密码
+38$@NoNoNo
+123
+输出描述：
+
+每组样例输出密码等级
+VERY_SECURE
+WEAK
+"""
+# 思路：将统计情况放主函数中一起写，避免分开写时多次遍历密码字符串。
+
+# while True:
+#     try:
+#         password = input().strip()
+#         score = 0  # 初始化得分为0
+#         # 长度得分
+#         if len(password) <= 4:
+#             score += 5
+#         elif 5 <= len(password) <= 7:
+#             score += 10
+#         else:
+#             score += 25
+#         # 字母、数字、符号统计(是否出现过、出现的个数)
+#         alpha, Alpha, digit, digit_num, symbol, symbol_num = 0, 0, 0, 0, 0, 0
+#         for ch in password:
+#             if ch.islower():
+#                 alpha = 1
+#             elif ch.isupper():
+#                 Alpha = 1
+#             elif ch.isdigit():
+#                 digit = 1
+#                 digit_num += 1
+#             else:
+#                 symbol = 1
+#                 symbol_num += 1
+#         # 字母得分
+#         if (alpha and not Alpha) or (Alpha and not alpha):
+#             score += 10
+#         elif alpha and Alpha:
+#             score += 20
+#         # 数字得分
+#         if digit_num == 1:
+#             score += 10
+#         elif digit_num > 1:
+#             score += 20
+#         # 符号得分
+#         if symbol_num == 1:
+#             score += 10
+#         elif symbol_num > 1:
+#             score += 25
+#         # 奖励得分
+#         # 此写法错误，本该属于第三种加分的情况被第二种加分情况拦截住了，加成了第二种情况的分数。
+#         # if (alpha or Alpha) and digit and not symbol:
+#         #     score += 2
+#         # elif (alpha or Alpha) and digit and symbol:
+#         #     score += 3
+#         # elif alpha and Alpha and digit and symbol:
+#         #     score += 5
+#         if alpha and Alpha and digit and symbol:
+#             score += 5
+#         elif (alpha or Alpha) and digit and symbol:
+#             score += 3
+#         elif (alpha or Alpha) and digit:
+#             score += 2
+#         # 分数等级
+#         if score >= 90:
+#             print('VERY_SECURE')
+#         elif score >= 80:
+#             print('SECURE')
+#         elif score >= 70:
+#             print('VERY_STRONG')
+#         elif score >= 60:
+#             print('STRONG')
+#         elif score >= 50:
+#             print('AVERAGE')
+#         elif score >= 25:
+#             print('WEAK')
+#         else:
+#             print('VERY_WEAK')
+#     except:
+#         break
+
+# while True:
+#     try:
+#         s = input()
+#         score = 0
+#         if len(s) <= 4:
+#             score += 5
+#         elif 5 <= len(s) <= 7:
+#             score += 10
+#         else:
+#             score += 25
+#         b_alpha,s_alpha,dig,dig_num,sym,sym_num = 0,0,0,0,0,0
+#         for i in s:
+#             if i.isupper():
+#                 b_alpha = 1
+#             elif i.islower():
+#                 s_alpha = 1
+#             elif i.isdigit():
+#                 dig = 1
+#                 dig_num += 1
+#             else:
+#                 sym = 1
+#                 sym_num += 1
+#         if (b_alpha and not s_alpha) or (s_alpha and not b_alpha):
+#             score += 10
+#         elif b_alpha and s_alpha:
+#             score += 20
+#         else:
+#             score += 0
+#         if dig_num > 1:
+#             score += 20
+#         elif dig_num == 1:
+#             score += 10
+#         else:
+#             score += 0
+#         if sym_num > 1:
+#             score += 25
+#         elif sym_num == 1:
+#             score += 10
+#         else:
+#             score += 0
+#         if b_alpha and s_alpha and dig and sym:
+#             score += 5
+#         elif (b_alpha or s_alpha) and dig and sym:
+#             score += 3
+#         else:
+#             score +=2
+#         if score >= 90:
+#             print('VERY_SECURE')
+#         elif score >= 80:
+#             print('SECURE')
+#         elif score >= 70:
+#             print('VERY_STRONG')
+#         elif score >= 60:
+#             print('STRONG')
+#         elif score >= 50:
+#             print('AVERAGE')
+#         elif score >= 25:
+#             print('WEAK')
+#         else:
+#             print('VERY_WEAK')
+#     except:
+#         break
+"""
+HJ88 扑克牌大小
+描述
+扑克牌游戏大家应该都比较熟悉了，一副牌由54张组成，含3~A、2各4张，小王1张，大王1张。牌面从小到大用如下字符和字符串表示（其中，小写joker表示小王，大写JOKER表示大王）：
+3 4 5 6 7 8 9 10 J Q K A 2 joker JOKER
+输入两手牌，两手牌之间用"-"连接，每手牌的每张牌以空格分隔，"-"两边没有空格，如：4 4 4 4-joker JOKER。
+请比较两手牌大小，输出较大的牌，如果不存在比较关系则输出ERROR。
+基本规则：
+（1）输入每手牌可能是个子、对子、顺子（连续5张）、三个、炸弹（四个）和对王中的一种，不存在其他情况，由输入保证两手牌都是合法的，顺子已经从小到大排列；
+（2）除了炸弹和对王可以和所有牌比较之外，其他类型的牌只能跟相同类型的存在比较关系（如，对子跟对子比较，三个跟三个比较），不考虑拆牌情况（如：将对子拆分成个子）；
+（3）大小规则跟大家平时了解的常见规则相同，个子、对子、三个比较牌面大小；顺子比较最小牌大小；炸弹大于前面所有的牌，炸弹之间比较牌面大小；对王是最大的牌；
+（4）输入的两手牌不会出现相等的情况。
+输入描述：
+输入两手牌，两手牌之间用"-"连接，每手牌的每张牌以空格分隔，"-"两边没有空格，如 4 4 4 4-joker JOKER。
+4 4 4 4-joker JOKER
+输出描述：
+输出两手牌中较大的那手，不含连接符，扑克牌顺序不变，仍以空格隔开；如果不存在比较关系则输出ERROR。
+joker JOKER
+"""
+# while True:
+#     try:
+#         p1,p2 = input().split('-')
+#         list1 = p1.split()
+#         list2 = p2.split()
+#         pai = {'3':3, '4':4, '5':5, '6':6, '7':7, '8':8, '9':9, '10':10,'J':11,'Q':12,'K':13,'A':14,'2':15,'joker':16,'JOKER':17}
+#         if p1 == 'joker JOKER':
+#             print('joker JOKER')
+#         elif p2 == 'joker JOKER':
+#             print('joker JOKER')
+#         elif len(list1) == 4 and len(list2) != 4:
+#             print(p1)
+#         elif len(list2) == 4 and len(list1) != 4:
+#             print(p2)
+#         elif len(list1) != len(list2):
+#             print('ERROR')
+#         else:
+#             print(p1) if pai[list1[0]] > pai[list2[0]] else print(p2)
+#     except:
+#         break
+"""
+HJ90 合法IP
+描述
+现在IPV4下用一个32位无符号整数来表示，一般用点分方式来显示，点将IP地址分成4个部分，每个部分为8位，表示成一个无符号整数（因此不需要用正号出现），如10.137.17.1，是我们非常熟悉的IP地址，一个IP地址串中没有空格出现（因为要表示成一个32数字）。
+现在需要你用程序来判断IP是否合法。
+注意本题有多组样例输入。
+输入描述：
+输入一个ip地址，保证是xx.xx.xx.xx的形式（xx为整数）
+10.138.15.1
+255.0.0.255
+255.255.255.1000
+输出描述：
+返回判断的结果YES or NO
+YES
+YES
+NO
+"""
+# while True:
+#     try:
+#         ip = input().strip()
+#         list1 = [int(i) for i in ip.split('.')]
+#         list2 = []
+#         for i in list1:
+#             if 0 <= i <= 255:
+#                 list2.append('0')
+#             else:
+#                 list2.append('1')
+#         if '1' in list2:
+#             print('NO')
+#         else:
+#             print('YES')
+#     except:
+#         break
+"""
+HJ91 走方格的方案数
+描述
+请计算n*m的棋盘格子（n为横向的格子数，m为竖向的格子数）沿着各自边缘线从左上角走到右下角，总共有多少种走法，要求不能走回头路，即：只能往右和往下走，不能往左和往上走。
+本题含有多组样例输入。
+输入描述：
+每组样例输入两个正整数n和m，用空格隔开。(1≤n,m≤8)
+2 2
+1 2
+输出描述：
+每组样例输出一行结果
+6
+3
+"""
+# 没有做出来的题
+# while True:
+#     try:
+#         n,m=map(int,input().split())
+#         c=[[1 for i in range(m+1)] for j in range(n+1)] #初始化边界全为1
+#         print(c)
+#         for i in range(1,n+1):
+#             for j in range(1,m+1):
+#                  #大家会奇怪为啥第三个c[i][j-1]的是j-1，根据动态规划法C[I][J]=C[I-1][J]+C[I][J+1]才对啊
+#                  #这是因为两层for的原因，都是从1 起步。所以就相当于从右上角到左下角的向下走法，两种走法的结果一致
+#                 c[i][j]=c[i-1][j]+c[i][j-1]
+#         print(c[n][m])
+#     except:
+#         break
+"""
+HJ92 在字符串中找出连续最长的数字串
+描述
+输入一个字符串，返回其最长的数字子串，以及其长度。若有多个最长的数字子串，则将它们全部输出（按原字符串的相对位置）
+本题含有多组样例输入。
+输入描述：
+输入一个字符串。1<=len(字符串)<=200
+abcd12345ed125ss123058789
+a8a72a6a5yy98y65ee1r2
+输出描述：
+输出字符串中最长的数字字符串和它的长度，中间用逗号间隔。如果有相同长度的串，则要一块儿输出（中间不要输出空格）。
+123058789,9
+729865,2
+"""
+# while True:
+#     try:
+#         s1 = input().strip()
+#         for i in s1:
+#             if i.isalpha():
+#                 s1 = s1.replace(i, ' ')
+#         list1 = s1.split()
+#         n1 = max(len(i) for i in list1)
+#         list2 = []
+#         for i in list1:
+#             if len(i) == n1:
+#                 list2.append(i)
+#         n2 = len(list2[0])
+#         print(''.join(list2) + ',' + str(n2))
+#     except:
+#         break
+"""
+HJ94 记票统计
+描述
+请实现一个计票统计系统。你会收到很多投票，其中有合法的也有不合法的，请统计每个候选人得票的数量以及不合法的票数。
+本题有多组样例输入。
+输入描述：
+输入候选人的人数n，第二行输入n个候选人的名字（均为大写字母的字符串），第三行输入投票人的人数，第四行输入投票。
+4
+A B C D
+8
+A D E CF A GG A B
+输出描述：
+按照输入的顺序，每行输出候选人的名字和得票数量，最后一行输出不合法的票数。
+A : 3
+B : 1
+C : 0
+D : 1
+Invalid : 3
+ """
+# 第一次做错了，理解为候选人只有ABCD，只通过了示例的调试
+# while True:
+#     try:
+#         n1 = int(input())
+#         s1 = input()
+#         list1 = s1.split()
+#         n2 = int(input())
+#         s2 = input()
+#         list2 = s2.split()
+#         list3 = []
+#         for i in list1:
+#             n3 = list2.count(i)
+#             list3.append(n3)
+#             print(i + ' : ' + str(n3))
+#         print('Invalid' + ' : ' + str(n2 - sum(list3)))
+#     except:
+#         break
+"""
+HJ96 表示数字
+描述
+将一个字符中所有的整数前后加上符号“*”，其他字符保持不变。连续的数字视为一个整数。
+注意：本题有多组样例输入。
+输入描述：
+输入一个字符串
+Jkdi234klowe90a3
+5151
+输出描述：
+字符中所有出现的数字前后加上符号“*”，其他字符保持不变
+Jkdi*234*klowe*90*a*3*
+*5151*
+"""
+# while True:
+#     try:
+#         s1 = input()
+#         s2 = ''
+#         s3 = ' ' + s1 + ' '
+#         for i in range(len(s3) - 1):
+#             s2 += s3[i]
+#             if (s3[i].isdigit() and not s3[i+1].isdigit()) or (s3[i+1].isdigit() and not s3[i].isdigit()):
+#                 s2 += '*'
+#         print(s2.strip())
+#     except:
+#         break
+
+"""
+HJ97 记负均正
+描述
+首先输入要输入的整数个数n，然后输入n个整数。输出为n个整数中负数的个数，和所有正整数的平均值，结果保留一位小数。
+0即不是正整数，也不是负数，不计入计算
+输入描述：
+本题有多组输入用例。
+首先输入一个正整数n，
+然后输入n个整数。
+5
+1 2 3 4 5
+10 
+1 2 3 4 5 6 7 8 9 0
+输出描述：
+输出负数的个数，和所有正整数的平均值。
+0 3.0
+0 5.0
+"""
+# while True:
+#     try:
+#         n1 = int(input())
+#         list1 = input().strip().split()
+#         list1 = [int(i) for i in list1]
+#         list_b = []
+#         n2 = 0
+#         list_u = []
+#         for i in list1:
+#             if i == 0:
+#                 continue
+#             elif i < 0:
+#                 list_b.append(i)
+#                 n2 += 1
+#             else:
+#                 list_u.append(i)
+#         #           小数点保留小数位方法一
+#         #         n3 = round(sum(list_u) / len(list_u),1)
+#         #         print(str(n2) + ' ' + str(n3))
+#         #           小数点保留小数位方法二
+#         n3 = sum(list_u) / len(list_u)
+#         print(str(n2) + ' ' + str("%.1f" % n3))
+#
+#     except:
+#         break
+"""
+HJ99 自守数
+描述
+自守数是指一个数的平方的尾数等于该数自身的自然数。例如：25^2 = 625，76^2 = 5776，9376^2 = 87909376。请求出n以内的自守数的个数
+接口说明
+/*
+功能: 求出n以内的自守数的个数
+输入参数：
+int n
+返回值：
+n以内自守数的数量。
+*/
+public static int CalcAutomorphicNumbers( int n)
+{
+/*在这里实现功能*/
+return 0;
+}
+本题有多组输入数据，请使用while(cin>>)等方式处理
+输入描述：
+int型整数
+2000
+输出描述：
+n以内自守数的数量。
+8
+"""
+# while True:
+#     try:
+#         n1 = int(input())
+#         n3 = 0
+#         for i in range(0,(n1+1)):
+#             s2 = str(i**2)[-len(str(i)):]
+#             if s2 == str(i) :
+#                 n3 += 1
+#         print(n3)
+#     except:
+#         break
+"""
+HJ100 等差数列
+功能:等差数列 2，5，8，11，14。。。。
+输入:正整数N >0
+输出:求等差数列前N项和
+本题为多组输入，请使用while(cin>>)等形式读取数据
+输入描述：
+输入一个正整数。
+2
+输出描述：
+输出一个相加后的整数。
+7
+"""
+# while True:
+#     try:
+#         n1 = int(input())
+#         n3 = 0
+#         for i in range(n1):
+#             n2 = 2 + (3*i)
+#             n3 += n2
+#         print(n3)
+#     except:
+#         break
+"""
+HJ101 输入整型数组和排序标识，对其元素按照升序或降
+描述
+输入整型数组和排序标识，对其元素按照升序或降序进行排序
+输入描述：
+第一行输入数组元素个数
+第二行输入待排序的数组，每个数用空格隔开
+第三行输入一个整数0或1。0代表升序排序，1代表降序排序
+8
+1 2 4 9 3 55 64 25
+0
+输出描述：
+输出排好序的数字
+1 2 3 4 9 25 55 64
+"""
+# while True:
+#     try:
+#         n1 = int(input())
+#         list2 = [int(i) for i in input().split()]
+#         n3 = int(input())
+#         if n3 == 0:
+#             list2.sort(reverse = False)
+#         else:
+#             list2.sort(reverse = True)
+#         list2 = [str(i) for i in list2]
+#         print(' '.join(list2))
+#     except:
+#         break
+"""
+HJ102 字符统计
+描述
+输入一个只包含小写英文字母和数字的字符串，按照不同字符统计个数由多到少输出统计结果，如果统计的个数相同，则按照ASCII码由小到大排序输出。
+本题含有多组样例输入
+输入描述：
+一个只包含小写英文字母和数字的字符串。
+aaddccdc
+1b1bbbbbbbbb
+输出描述：
+一个字符串，为不同字母出现次数的降序表示。若出现次数相同，则按ASCII码的升序输出。
+cda
+b1
+"""
+# while True:
+#     try:
+#         s1 = input().strip()
+#         list2 = []
+#         dict1 = {}
+#         s3 = ''
+#         for i in s1:
+#             if i not in list2:
+#                 list2.append(i)
+#         list2.sort()
+#         for j in list2:
+#             dict1[j] = s1.count(j)
+#         list3 = sorted(dict1.items(),key=lambda x:x[1],reverse=True)
+#         for k in list3:
+#             s3 += k[0]
+#         print(s3)
+#     except:
+#         break
+"""
+HJ105 记负均正II
+从输入任意个整型数，统计其中的负数个数并求所有非负数的平均值，结果保留一位小数，如果没有非负数，则平均值为0
+本题有多组输入数据，输入到文件末尾，请使用while(cin>>)读入
+数据范围小于1e6
+输入描述：
+输入任意个整数，每行输入一个。
+-13
+-4
+-7
+输出描述：
+输出负数个数以及所有非负数的平均值
+3
+0.0
+"""
+# ans = 0
+# num = 0
+# neg = 0
+# while True:
+#     try:
+#         n = int(input())
+#         if  n > 0:
+#             ans += n
+#             num += 1
+#         else:
+#             neg += 1
+#     except EOFError:
+#         break
+# print(neg)
+# print(round(ans/num, 1)) if num > 0 else print(0.0)
+
+"""
+HJ107 求解立方根
+描述
+计算一个数字的立方根，不使用库函数。
+保留一位小数。
+输入描述：
+待求解参数，为double类型（一个实数）216
+输出描述：
+输入参数的立方根。保留一位小数。6.0
+"""
+# while True:
+#     try:
+#         n = float(input())
+#         if n == 0:
+#             print(0)
+#         elif n < 0:
+#             n = abs(n)
+#             print(round(n**(1/3)*(-1),1))
+#         else:
+#             print(round(n**(1/3),1))
+#     except:
+#          break
+"""
+HJ108 求最小公倍数
+描述
+正整数A和正整数B 的最小公倍数是指 能被A和B整除的最小的正整数值，设计一个算法，求输入A和B的最小公倍数。
+输入描述：
+输入两个正整数A和B。
+5 7
+输出描述：
+输出A和B的最小公倍数。
+35
+"""
+# while True:
+#     try:
+#         a,b = map(int,input().split())
+#         list1 = []
+#         for i in range(1,min(a,b)+1):
+#             if a%i == 0 and b%i == 0:
+#                 list1.append(int(a*b/i))
+#         print(min(list1))
+#     except:
+#         break
+# #俩个数的最小公倍数等于俩个数的乘积除以俩个数的最大公约数
