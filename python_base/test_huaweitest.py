@@ -155,6 +155,10 @@ HJ10 字符个数统计
 #         str_02 = str_02 + str_01[i]
 # print(len(str_02))
 
+# str_01 = input()
+# set_02 = set(str_01)
+# print(len(set_02))
+
 """
 HJ11 数字颠倒
 输入一个整数，将这个整数以字符串的形式逆序输出
@@ -170,6 +174,10 @@ HJ11 数字颠倒
 # for i in range(len(str_01)):
 #     str_02 = str_02 + str_01[-(i+1)]
 # print(str_02)
+
+# num_01= input()
+# str_01 = str(num_01)
+# print(str_01[::-1])
 
 """
 HJ12 字符串反转
@@ -187,6 +195,10 @@ HJ12 字符串反转
 # for i in range(len(str_01)):
 #     str_02 = str_02 + str_01[-(i+1)]
 # print(str_02)
+
+# str_01= input()
+# print(str_01[::-1])
+
 """
 HJ13 句子逆序
 描述
