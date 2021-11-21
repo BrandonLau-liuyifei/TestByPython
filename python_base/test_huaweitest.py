@@ -7,7 +7,7 @@
 # b=list_01[-1]
 # c=len(b)
 # print(c)
-
+# 简写1行 print(len(input().split()[-1]))
 '''#HJ02.写出一个程序，接受一个由字母、数字和空格组成的字符串，和一个字母，然后输出输入字符串中该字母的出现次数。不区分大小写，字符串长度小于500。'''
 # str_01=input()
 # a=input()
@@ -15,7 +15,8 @@
 # b=a.lower()
 # count_01=str_02.count(b)
 # print(count_01)
-
+# 简写1行
+# print(input().lower().count(input().lower()))
 """HJ03.明明想在学校中请一些同学一起做一项问卷调查，为了实验的客观性，他先用计算机生成了N个1到1000之间的随机整数（N≤1000），对于其中重复的数字，只保留一个，把其余相同的数去掉，不同的数对应着不同的学生的学号。然后再把这些数从小到大排序，按照排好的顺序去找同学做调查。请你协助明明完成“去重”与“排序”的工作(同一个测试用例里可能会有多组数据(用于不同的调查)，希望大家能正确处理)。
 注：测试用例保证输入参数的正确性，答题者无需验证。测试用例不止一组。
 当没有新的输入时，说明输入结束。"""
@@ -80,6 +81,12 @@ HJ05题目描述
 #         print(s)
 #     except:
 #         break
+# 简写
+# while True:
+#     try:
+#         print((int(input(),16)))
+#     except:
+#         break
 """
 HJ07题目描述
 写出一个程序，接受一个正浮点数值，输出该数值的近似整数值。如果小数点后数值大于等于5,向上取整；小于5，则向下取整。
@@ -87,6 +94,8 @@ HJ07题目描述
 # a=float(input())
 # b=a+0.5
 # print(int(b))
+# 简写
+# print(int(float(input())+0.5))
 """
 HJ08题目描述
 数据表记录包含表索引和数值（int范围的正整数），请对表索引相同的记录进行合并，即将相同索引的数值进行求和运算，输出按照key值升序进行输出。
@@ -158,6 +167,9 @@ HJ10 字符个数统计
 # str_01 = input()
 # set_02 = set(str_01)
 # print(len(set_02))
+
+# 简写
+# print(len(set(input())))
 
 """
 HJ11 数字颠倒
@@ -349,28 +361,25 @@ c 637 1
 f 633 1
 ywzqaop 631 2
 """
+
 # log_list = []
-# count_dict = {}
+# dict01 = {}
 # while True:
 #     try:
-#         line = input()
-#         if not line:
-#             continue
-#         list_01 = line.split(" ")
-#         file_path = list_01[0]
-#         error_num = list_01[1]
-#         file_name = file_path.split("\\")[-1][-16:]
-#         key = file_name +  ' ' + error_num
-#         if key not in count_dict.keys():
-#             count_dict[key] = 1
+#         s = input()
+#         path,error_code = map(str,s.split())
+#         file_name = path.split('\\')[-1][-16:]
+#         key01 = file_name + ' ' + error_code
+#         if key01 not in dict01.keys():
+#             dict01[key01] = 1
 #         else:
-#             count_dict[key] += 1
-#         if key not in log_list:
-#             log_list.append(key)
+#             dict01[key01] = dict01[key01] + 1
+#         if key01 not in log_list:
+#             log_list.append(key01)
 #     except:
 #         break
 # for i in log_list[-8:]:
-#     print(i + " " + str(count_dict[i]))
+#     print(i + ' ' + str(dict01[i]))
 """
 HJ20 密码验证合格程序
 描述
@@ -421,17 +430,18 @@ YUANzhi1987
 zvbo9441987
 输出渊子真正的密文
 """
-# s=input()
-# str_01 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-# str_02 = "bcdefghijklmnopqrstuvwxyza22233344455566677778889999"
-# s2=''
-# for i in s:
-#     if i in str_01:
-#         index_01 = str_01.find(i)
-#         s2=s2+str_02[index_01]
-#     else:
-#         s2 = s2 + i
-# print(s2)
+# while True:
+#     try:
+#         s1 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+#         s2 = 'bcdefghijklmnopqrstuvwxyza222333444555666777788899990123456789'
+#         p1 = input()
+#         p2 = ''
+#         for i in p1:
+#             index01 = s1.find(i)
+#             p2 = p2 + s2[index01]
+#         print(p2)
+#     except:
+#         break
 """
 HJ22 汽水瓶
 描述
@@ -468,6 +478,24 @@ HJ22 汽水瓶
 #         if num == 0:
 #             break
 #         print(num)
+#     except:
+#         break
+# 重写
+# while True:
+#     try:
+#         n1 = int(input())
+#         he = 0
+#         while n1 >=3:
+#             n2 = n1//3
+#             he = he+n2
+#             n3 = n1%3
+#             n1 = n2+n3
+#         else:
+#             if n1 == 2:
+#                 he = he+1
+#             if n1 == 0:
+#                 continue
+#         print(he)
 #     except:
 #         break
 """
@@ -528,7 +556,7 @@ A aaAAbc dFgghh: iimM nNn oooos Sttuuuy (2012/8).
 #             else:
 #                 res += i
 #         print(res)
-# except:
+# except:x
 #     pass
 """
 HJ29 字符串解密
