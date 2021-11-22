@@ -601,6 +601,25 @@ abcdefg
 #         print(transfer(s, b, a))
 #     except:
 #         break
+# 重写
+# while True:
+#     try:
+#         s1 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+#         s2 = 'bcdefghijklmnopqrstuvwxyzaBCDEFGHIJKLMNOPQRSTUVWXYZA1234567890'
+#         s3 = input()
+#         s4 = ''
+#         for i in s3:
+#             index01 = s1.find(i)
+#             s4 = s4 + s2[index01]
+#         print(s4)
+#         s5 = input()
+#         s6 = ''
+#         for i in s5:
+#             index02 = s2.find(i)
+#             s6 = s6 + s1[index02]
+#         print(s6)
+#     except:
+#         break
 """
 HI31.题目描述
 对字符串中的所有单词进行倒排。
@@ -669,6 +688,24 @@ HJ33 整数与IP地址间的转换
 #         print(num_to_ip(b))
 #     except:
 #         break
+# 重写
+# while True:
+#     try:
+#         s1 = list(map(int,input().strip().split('.')))
+#         s2 = ''
+#         for i in s1:
+#             re1 = bin(i)[2:].zfill(8)
+# #             re1 = bin(i)[2:].rjust(8,'0')
+#             s2 = s2 + re1
+#         print(int(s2,2))
+#         s2 = bin(int(input()))[2:].zfill(32)
+# #         s2 = bin(int(input()))[2:].rjust(32,'0')
+#         list1 = []
+#         for i in range(0,31,8):
+#             list1.append(str(int(s2[i:i+8],2)))
+#         print('.'.join(list1))
+#     except:
+#         break
 """
 HJ34 图片整理
 Lily上课时使用字母数字图片教小朋友们学习英语单词，每次都需要把这些图片按照大小（ASCII码值从小到大）排列收好。请大家给Lily帮忙，通过C语言解决。
@@ -696,6 +733,7 @@ Lily的所有图片按照从小到大的顺序输出
 #         print("".join(num_list) + "".join(upper_list) + "".join(lower_list))
 #     except:
 #         break
+# 上次蠢了，直接ascii排序岂不是更香甜
 """
 HJ35 蛇形矩阵
 蛇形矩阵是由1开始的自然数依次排列成的一个矩阵上三角形。
@@ -767,6 +805,24 @@ le
 #         print(pass_02)
 #     except:
 #         break
+# 重写
+# while True:
+#     try:
+#         s1 = 'abcdefghijklmnopqrstuvwxyz'
+#         s2 = input()
+#         s3 = ''
+#         s5 = ''
+#         s20 = s2+s1
+#         for i in s20:
+#             if i not in s3:
+#                 s3 = s3+i
+#         s4 = input()
+#         for i in s4:
+#             index01 = s1.find(i)
+#             s5 = s5 + s3[index01]
+#         print(s5)
+#     except:
+#         break
 """
 HJ37 统计每个月兔子的总数
 有一只兔子，从出生后第3个月起每个月都生一只兔子，小兔子长到第三个月后每个月又生一只兔子，假如兔子都不死，问每个月的兔子总数为多少？
@@ -803,7 +859,6 @@ HJ38 求小球落地5次后所经历的路程和第
 # h_01 = int(input())
 # dist = h_01
 # distance = h_01
-# last = 0.0
 # for i in range(4):
 #     dist = dist / 2
 #     distance = distance + dist * 2
