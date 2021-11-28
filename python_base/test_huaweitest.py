@@ -734,6 +734,13 @@ Lily的所有图片按照从小到大的顺序输出
 #     except:
 #         break
 # 上次蠢了，直接ascii排序岂不是更香甜
+# while True:
+#     try:
+#         s = list(input())
+#         s.sort()
+#         print("".join(s))
+#     except:
+#         break
 """
 HJ35 蛇形矩阵
 蛇形矩阵是由1开始的自然数依次排列成的一个矩阵上三角形。
@@ -984,6 +991,7 @@ lisi
 #             print(total_value)
 #     except:
 #         break
+# 之前写的太繁琐了，重写不超10行代码
 """
 HJ46 截取字符串
 描述
@@ -1112,6 +1120,7 @@ HJ53 杨辉三角的变形
 #         print(b)
 #     except:
 #         break
+# 重写更简单
 """
 HJ54 表达式求值
 给定一个字符串描述的算术表达式，计算出结果值。
@@ -1182,6 +1191,23 @@ HJ56 完全数计算
 #         print(m)
 #     except:
 #         break
+# 重写的 虽然通过，但是危险，循环复杂度过大就危险了
+# while True:
+#     try:
+#         n1 = int(input())
+#         s = 0
+#         for i in range(1, n1):
+#             s1 = 0
+#             for j in range(1, i - 1):
+#                 if i % j == 0:
+#                     s1 = s1 + j
+#             if s1 == i:
+#                 s = s + 1
+#         print(s)
+#
+#     except:
+#         break
+
 """
 HJ57 高精度整数加法
 描述
@@ -1237,6 +1263,17 @@ HJ58 输入n个整数，输出其中最小的k个
 #         print(s3)
 #     except:
 #         break
+# 重写的 注意ascii排序字符【'3545'，'356'】与数字【356，3545】的区别
+while True:
+    try:
+        li1 = list(int(i) for i in (input().strip().split()))
+        m = min(li1)
+        li2 = list(int(i) for i in (input().strip().split()))
+        li2.sort()
+        li3 = list(str(i) for i in li2)
+        print(" ".join(li3[:m]))
+    except:
+        break
 """
 HJ59 找出字符串中第一个只出现一次的字符
 输入描述：
@@ -1252,16 +1289,31 @@ o
 #     try:
 #         s = input()
 #         n1 = 0
-#         n2 = -1
 #         list1 = []
 #         for i in s:
 #             if s.count(i) == 1:
 #                 n1 = n1 + 1
 #                 list1.append(i)
 #         if n1 ==0:
-#             print(n2)
+#             print(-1)
 #         else:
 #             print(list1[0])
+#     except:
+#         break
+# 重写的
+# while True:
+#     try:
+#         s1 = input()
+#         list1 = []
+#         for i in s1:
+#             list1.append(s1.count(i))
+#         if 1 in list1:
+#             for i in s1:
+#                 if s1.count(i) == 1:
+#                     print(i)
+#                     break
+#         else:
+#             print(-1)
 #     except:
 #         break
 """
