@@ -1,7 +1,0 @@
-{
-  "test_01_add.py::TestClass::test_two": true,
-  "test_05_fixture_scope.py::test_search1": true,
-  "test_11_assert.py": true,
-  "test_12_params.py::test_eval[7*5-30]": true,
-  "test_add.py::TestClass::test_two": true
-}
