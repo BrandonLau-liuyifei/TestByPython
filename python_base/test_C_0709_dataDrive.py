@@ -1,6 +1,7 @@
 # ！/usr/bin/env python
 # -*- coding：utf-8 -*-
-import pytest, yaml
+import pytest
+import yaml
 
 
 class TestDemo:

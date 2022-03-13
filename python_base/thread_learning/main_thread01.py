@@ -1,6 +1,8 @@
 # ！/usr/bin/env python
 # -*- coding：utf-8 -*-
-import time, logging, _thread
+import _thread
+import logging
+import time
 
 logging.basicConfig(level=logging.INFO)
 

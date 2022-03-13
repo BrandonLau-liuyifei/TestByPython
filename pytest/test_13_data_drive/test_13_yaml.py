@@ -7,7 +7,8 @@ YAML是一种容易阅读和适合表示程序的数据结构，可用于不同�
 通过缩进或符号来表示数据类型。
 pyyaml文件模块在python处理yaml格式，主要使用yaml.safe_dump()和yaml.safe_load()将python值和yanl格式数据相互转换。
 """
-import pytest, yaml
+import pytest
+import yaml
 
 
 @pytest.mark.parametrize("a,b", yaml.safe_load(open("testdata.yml", encoding='utf-8')))

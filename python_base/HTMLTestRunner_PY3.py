@@ -100,8 +100,8 @@ Version in 0.7.1
 # TODO: simplify javascript using ,ore than 1 class in the class attribute?
 
 import datetime
-import sys
 import io
+import sys
 import time
 import unittest
 from xml.sax import saxutils
