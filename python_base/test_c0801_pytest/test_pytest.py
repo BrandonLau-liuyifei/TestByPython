@@ -13,6 +13,12 @@ class TestCalc:
     def teardown(self):
         print("this is end")
 
+    @pytest.mark.run(order=2)
+    def test_add_01(self):
+        result = self.calc.add(1, 2)
+        assert result == 3
+
+    @pytest.mark.run(order=1)
     def test_add(self):
         result = self.calc.add(1, 2)
         assert result == 3
