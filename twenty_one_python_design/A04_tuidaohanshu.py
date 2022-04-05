@@ -6,6 +6,7 @@ print(square)
 keys = ["name", "age", "weight"]
 values = ["bob", "23", "68"]
 
+# 字典推倒式
 # {key_exp:value_exp for key_exp,value_exp in aiterator}
 dict_0 = {k: v for k, v in zip(keys, values)}
 print(dict_0)
