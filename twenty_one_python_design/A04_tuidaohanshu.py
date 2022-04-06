@@ -17,6 +17,7 @@ print(dict_0)
 square_odd = [i ** 2 for i in range(1, 11) if i ** 2 % 2 != 1]
 print(square_odd)
 
+# 等价于
 square_odd_01 = []
 for i in range(1, 11):
     if i ** 2 % 2 != 1:

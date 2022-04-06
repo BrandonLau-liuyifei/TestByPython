@@ -31,6 +31,9 @@ help(myclass)
 方法的第一个参数必须是self，而且不能省略
 方法调用需要实例化类，并以实例名。方法名（参数列表）形式调用
 整体进行一个单位的缩进，表示其属于类体中的内容
+
+定义方法时，也可以像定义函数一样声明各种形式的参数；
+方法调用时，不用提供self参数。
 """
 
 
@@ -70,6 +73,13 @@ print(dia.mycacl1())
 def coord_chng(x, y):  # 定义一个全局函数，模拟坐标转换
     return (abs(x), abs(y))
 
+"""
+__init__()方法，一个特殊的构造方法，用于类实例化时初始化相关数据，如果在这个方法中有
+相关参数，则实例化时就必须提供。
+"""
+"""
+self.方法名（参数列表）   方法调用使用要加self
+"""
 
 class Ant:  # 定义一个类Ant
     def __init__(self, x=0, y=0):  # 定义一个构造方法
@@ -264,3 +274,21 @@ sub_03.info()
 如class_flyAnt 中的attack（）
 class_Sub_03中的info()
 """
+
+
+
+# 类练习
+class  MM:
+    def __init__(self,x=0,y=0,c=0):
+        self.x = x
+        self.y = y
+        self.c = c
+
+    def add(self,d):
+        self.d = d
+        sum_01 = self.c + self.x + self.y + self.d
+        print(sum_01)
+
+
+mm = MM(1,2,3)
+mm.add(5)
