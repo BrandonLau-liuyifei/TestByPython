@@ -70,7 +70,7 @@ class fly_Ant(Ant):
         self.info()
 
 
-class Final_Ant(Ant, fly_Ant):
+class Final_Ant(fly_Ant):
 
     def jump(self, x, y):
         self.x = x

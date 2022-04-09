@@ -1,7 +1,7 @@
 # 7 错误、异常和程序调试
 # 7.1 语法错误
 """
-关键字、变量名、函数名写错,系统报SyntaxError
+关键字、变量名、函数名写错,系统报SystaxError
 脚本不符合逻辑规范
 缩进错误
 """
@@ -10,14 +10,14 @@ for i in range(3):
 
 # 7.2 异常的处理
 """try:
-    <语句(块)>            可能产生异常的语句
+    <语句(块)>            可能产生异常的语句(块)
 except <异常名1>:         要处理的异常1
     < 语句(块) >          异常处理语句
 except <异常名1>:         要处理的异常2
     < 语句(块) >          异常处理语句
 ......
 else:
-    <语句(块)>            未出发异常，执行该该句
+    <语句(块)>            未出发异常，执行该该句(块)
 finally:
     < 语句(块) >          始终执行该句，一般为了达到释放资源的目的
 """
@@ -46,9 +46,9 @@ def TestTry(index, flag=False):
 print("Right params testing start......")
 print(TestTry(1, True))
 print(TestTry(1, False))
-# print("Error params testing start......")
-# print(TestTry(4,True))
-# print(TestTry(4,False))
+print("Error params testing start......")
+print(TestTry(4,True))
+print(TestTry(4,False))
 
 """
 情景1：
@@ -80,6 +80,19 @@ testTryFinally(4)
 
 """
 dir(__builtins__) 内建异常
+
+异常名             描述
+AttributeError    调用不存在的方法引发的异常
+EOFError          遇到文件末尾引发的异常
+ImportError       导入模块出错引发的异常
+IndexError        列表越界引发的异常
+IOError           I/O操作引发的异常，如打开文件出错等
+KeyError          使用字典中不存在的关键字引发的异常
+NameError         使用不存在的变量名引发的异常
+TabError          语句块缩进不正确引发的异常
+ValueError        搜索列表中不存在的值引发的异常
+ZeroDivisionError 除数为零引发的异常
+
 except语法
 except：     捕获所有异常
 except(异常名):    捕获指定异常
@@ -119,13 +132,14 @@ print("Try One ...... Right")
 testTryOne(1, 2)
 print("Try one ...... one Error")
 testTryOne(4, 2)
-# print("Try one ...... one Error")
-# testTryOne(1,0)
+print("Try one ...... one Error")
+testTryOne(1,0)
 
 # 7.3 手工抛出异常
 """
 7.3.1 用raise手工抛异常
-raise语句来引发指定的异常，并向异常传递数据，也可以抛出各种预定异常，即使程序在运行过程时根本不会引发该异常
+raise语句来引发指定的异常，并向异常传递数据，也可以抛出各种预定异常，
+即使程序在运行过程时根本不会引发该异常
 raise 异常名
 raise 异常名 附加数据
 raise 类名
@@ -133,13 +147,14 @@ raise 类名
 
 
 # 代码抛出异常，没有捕获该异常，所以会中断，导致后面代码不会运行
-# def testRaise():
-#     for i in range(5):
-#         if i ==2:
-#             raise NameError
-#         print(i)
-#     print("end=...")
-# testRaise()
+def testRaise():
+    for i in range(5):
+        if i == 2:
+            raise NameError
+        print(i)
+    print("end=...")
+testRaise()
+
 # 代码抛出异常，有捕获该异常，所以不会中断运行
 def testRaise2():
     for i in range(5):
@@ -151,15 +166,14 @@ def testRaise2():
         print(i)
     print("end...")
 
-
 testRaise2()
+
 """
 7.3.2 assert 语句
 assert,<条件测试>,<异常附加数据>    #其中异常附加数据是可选的
 引发异常前提是后面的条件测试为假，同时抛出异常和捕获异常
 使用python -O 来执行会关闭assert语句
 """
-
 
 def testAssert():
     for i in range(3):
@@ -174,12 +188,13 @@ def testAssert():
 testAssert()
 
 # 7.3.3 自定义异常类（继承于Exception）
-"""
-class MyError()
-    pass
-如需要异常类带有一定的提示信息，也可以重载__init__和__str__
-"""
 
+class MyError(Exception):
+    pass
+
+'''
+需要异常类带有一定的提示信息，也可以重载__init__和__str__这两个方法。
+'''
 
 class RangeError(Exception):
     def __init__(self, value):
@@ -190,6 +205,12 @@ class RangeError(Exception):
 
 
 raise RangeError('Range Error')
+
+'''
+代码中自定义了一个继承了Exception类的异常类，并
+重载了__init__和__str_两个方法。之后，直接用raise抛出这个自定义的
+异常。
+'''
 
 # 7.4 用pdb调试程序
 """
@@ -212,7 +233,7 @@ for i in range(3):
 """
 > <string>(2)<module>()
 (Pdb) 
-(Pdb) help
+(Pdb) h
 
 Documented commands (type help <topic>):
 ========================================
