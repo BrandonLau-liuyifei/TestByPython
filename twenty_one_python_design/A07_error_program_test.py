@@ -286,6 +286,7 @@ python标准库中doctest、unittest模块用于测试
 将测试用例写进代码行中
 也可以使用python -m doctest py文件执行"""
 
+import pdb
 
 def grade(sum):
     """
@@ -315,6 +316,7 @@ if __name__ == "__mian__":
 
 
 # 使用testfile函数测试，将用例写进txt文件中，进行测试
+# python -m doctest 7-14.py
 
 
 def grade(sum):
