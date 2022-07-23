@@ -43,11 +43,11 @@ def TestTry(index, flag=False):
         return "No Try Test Finished"
 
 
-print("Right params testing start......")
+print("Right params testing1 start......")
 print(TestTry(1, True))
 print(TestTry(1, False))
-print("Error params testing start......")
-print(TestTry(4,True))
+print("Error params testing1 start......")
+print(TestTry(4, True))
 print(TestTry(4,False))
 
 """

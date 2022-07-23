@@ -22,6 +22,6 @@ class TestData:
         print(a + b)
 
     # 使用yaml参数化
-    @pytest.mark.parametrize(["a", "b"], yaml.safe_load(open("./yaml_0708.yaml")))
+    @pytest.mark.parametrize(["a", "b"], yaml.safe_load(open("yaml_0708.yaml")))
     def test_param4(self, a, b):
         print(a + b)

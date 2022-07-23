@@ -18,7 +18,7 @@ str_none("ab cd ef gh im no")
 
 user = [
     {"name": "john", "password": "123", "usertype": "1"},
-    {"name": "john1", "password": "123d", "usertype": "2"},
+    {"name": "john1", "password": "123d", "usertype": "2"}
 ]
 name = []
 password = []

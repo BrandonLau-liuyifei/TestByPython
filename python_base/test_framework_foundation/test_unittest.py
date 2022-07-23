@@ -2,7 +2,7 @@
 # -*- coding：utf-8 -*-
 import unittest
 
-from python_base.HTMLTestRunner_PY3 import HTMLTestRunner
+from python_base.test_framework_foundation.HTMLTestRunner_PY3 import HTMLTestRunner
 
 
 class demo(unittest.TestCase):
@@ -58,13 +58,13 @@ if __name__ == '__main__':
     # suiteall = unittest.TestSuite([suite1,suite2])
     # unittest.TextTestRunner().run(suiteall)
 
-    discover = unittest.defaultTestLoader.discover("./", 'test_C_0705*.py')
+    discover = unittest.defaultTestLoader.discover("../", 'test_C_0705*.py')
     # unittest.TextTestRunner().run(discover)
 
     # HTMLTestRunner测试报告
     report_title = '测试报告'
     desc = '测试练习使用'
-    report_file = './测试报告.html'
+    report_file = '../测试报告.html'
 
     with open(report_file, 'wb') as report:
         runner = HTMLTestRunner(stream=report, title=report_title, description=desc)

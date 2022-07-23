@@ -48,4 +48,4 @@ if __name__ == '__main__':
     # 执行方式一
     pytest.main('-v -s TestDemo')
     # 执行方式二
-    pytest.main(['-v', '-s', 'test_C_0707_pytest.py'])
+    pytest.main(['-v', '-s', 'test_pytest.py'])

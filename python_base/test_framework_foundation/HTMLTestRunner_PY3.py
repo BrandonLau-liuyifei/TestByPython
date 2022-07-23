@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-A TestRunner for use with the Python unit testing framework. It
+A TestRunner for use with the Python unit testing1 framework. It
 generates a HTML report to show the result at a glance.
 
 The simplest way to use this is to invoke its main method. E.g.
@@ -108,7 +108,7 @@ from xml.sax import saxutils
 
 
 # ------------------------------------------------------------------------
-# The redirectors below are used to capture output during testing. Output
+# The redirectors below are used to capture output during testing1. Output
 # sent to sys.stdout and sys.stderr are automatically captured. However
 # in some cases sys.stdout is already cached before HTMLTestRunner is
 # invoked (e.g. calling logging.basicConfig). In order to capture those
@@ -628,7 +628,7 @@ class _TestResult(TestResult):
                 sys.stderr.write(str(test))
                 sys.stderr.write('\n')
             else:
-                sys.stderr.write('.')
+                sys.stderr.write('..')
 
     def addError(self, test, err):
         self.error_count += 1
@@ -698,7 +698,7 @@ class _TestResult(TestResult):
                 sys.stderr.write(str(subtest))
                 sys.stderr.write('\n')
             else:
-                sys.stderr.write('.')
+                sys.stderr.write('..')
 
 
 class HTMLTestRunner(Template_mixin):

@@ -4,9 +4,9 @@ import sys
 import unittest
 
 print(sys.path)
-sys.path.append("..")
-sys.path.append("/Users/liuyifei/PycharmProjects/TestByPython")
-from python_base.test_c0801_pytest.calc import Calc
+sys.path.append("../../..")
+# sys.path.append("/Users/liuyifei/PycharmProjects/TestByPython")
+from python_base.test_framework_practise.test_pytest.calc import Calc
 
 
 class TestCal(unittest.TestCase):

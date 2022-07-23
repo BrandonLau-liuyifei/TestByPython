@@ -7,9 +7,9 @@ import yaml
 class TestDemo:
 
     def test_yaml(self):
-        print(yaml.safe_load(open("./yaml_0709.yaml")))
+        print(yaml.safe_load(open("yaml_0709.yaml")))
 
-    @pytest.mark.parametrize("env", yaml.safe_load(open("./yaml_0709.yaml")))
+    @pytest.mark.parametrize("env", yaml.safe_load(open("yaml_0709.yaml")))
     def test_demo(self, env):
         if "test" in env:
             print("this is a test env,IP:", env["test"])
