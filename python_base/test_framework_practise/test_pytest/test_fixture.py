@@ -7,7 +7,7 @@ import pytest
 @pytest.fixture
 def login():
     print('登录')
-    username = ''
+    username = 'tom'
     yield username
     print('teardown')
 
