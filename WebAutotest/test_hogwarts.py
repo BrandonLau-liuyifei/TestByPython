@@ -20,3 +20,9 @@ class TestHogwarts():
         self.driver.find_element(By.LINK_TEXT, 'Jenkins 中文社区').click()
         self.driver.find_element(By.CSS_SELECTOR, '.topic-27128 .title > a').click()
         # 中间没有等待，第二个元素没能及时加载处来，导致报错，可以在setup等待机制
+
+
+
+
+
+        

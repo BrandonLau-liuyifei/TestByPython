@@ -23,5 +23,4 @@ class TestTestclick():
     self.driver.get("https://ceshiren.com/top")
     self.driver.set_window_size(1269, 1154)
     self.driver.find_element(By.CSS_SELECTOR, "#ember67 .category-name").click()
-    self.driver.find_element(By.CSS_SELECTOR, "#ember53").click()
     self.driver.close()
